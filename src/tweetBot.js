@@ -130,16 +130,23 @@ class TweetBot {
                 Context: ${trend.context}
                 
                 Requirements:
-                - MUST use close to 280 characters (aim for 270-279)
-                - Include relevant hashtags at the end
-                - Pack in as much information as possible while maintaining readability
-                - Use abbreviations where appropriate to save space
-                - Include key statistics or numbers if available
-                - End with a strong call to action or thought-provoking point
-                - Add #TechIndia and #IndianTech hashtags
+                - Focus on specific technical details, not general observations
+                - Include at least one concrete statistic or technical metric
+                - Mention specific technologies, frameworks, or tools
+                - Use technical terminology appropriate for developers
+                - Include 2-3 relevant hashtags
+                - Must be under 280 characters
+                - Avoid marketing-style language
+                - Don't use ellipsis (...)
                 
-                Format the tweet to maximize information density while staying under 280 characters.`;
+                Example good tweet:
+                "New benchmark: PyTorch 2.0 shows 37% faster training on large language models using dynamic compilation. Key improvements: eager-mode execution, TorchDynamo optimizer, better CUDA utilization. Game-changer for #ML deployments #PyTorch #AI"
+                
+                Example bad tweet (too generic):
+                "Discover the latest AI revolution sweeping India! From facial recognition to personalized healthcare, AI is transforming industries..."
 
+                Generate a tweet in the style of the good example.`;
+            
             const result = await this.geminiModel.generateContent(prompt);
             const tweet = result.response.text().trim();
             
